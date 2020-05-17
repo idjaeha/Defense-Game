@@ -24,6 +24,7 @@ public:
 	int key;			// 키보드 입력 값
 	int subkey;			// 키보드 보조 입력 값
 	int energy;			// 현재 가지고 있는 에너지 값
+	int gameOverCount;	// 게임의 남은 시간
 
 	UICursor* uiCursor;
 	CanvasCursor* canvasCursor;
@@ -46,6 +47,7 @@ public:
 	void renderMap();
 	void renderEnergy();
 	void renderHp();
+	void renderPlayTime();
 	void renderCanvas();
 	void render();
 	void update();

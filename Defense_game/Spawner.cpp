@@ -22,11 +22,11 @@ void Spawner::update() {
 		spawnBigCount--;
 		if (spawnNormalCount <= 0) {
 			srand((unsigned int)time(0));
-			spawnNormalCount = (rand() % 5) * 10 + 10;
+			spawnNormalCount = (rand() % 5) * 10 + 100;
 			spawn(ZOMBIE_NORMAL);
 		}
 		if (spawnBigCount <= 0) {
-			spawnBigCount = (rand() % 5) * 10 + 10;
+			spawnBigCount = (rand() % 5) * 10 + 100;
 			spawn(ZOMBIE_BIG);
 		}
 	}

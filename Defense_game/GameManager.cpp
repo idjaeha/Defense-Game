@@ -68,9 +68,10 @@ void GameManager::InitGame() {
 	cursors[1] = canvasCursor;
 
 	// 에너지 초기화
-	energy = 1000;
+	energy = 50;
 	hp = 5;
 	isReady = true;
+	gameOverCount = 600;
 }
 
 void GameManager::putItem()
@@ -118,7 +119,7 @@ void GameManager::eatEnergy()
 {
 	if (canvas[CANVAS_SIZE_ROW - 1][canvasCursor->canvasIdx] == CHAR_ENERGY) {
 		canvas[CANVAS_SIZE_ROW - 1][canvasCursor->canvasIdx] = CHAR_BLANK;
-		energy += 20;
+		energy += 25;
 	}
 }
 
@@ -219,6 +220,12 @@ void GameManager::renderHp()
 	printf("HP %3d", hp);
 }
 
+void GameManager::renderPlayTime()
+{
+	gotoxy(4, 3);
+	printf("%4d", gameOverCount);
+}
+
 void GameManager::renderCanvas() {
 	// Map에서 canvas에 해당하는 부분만 따로 출력합니다.
 	int canvasRow, canvasCol;
@@ -275,6 +282,7 @@ void GameManager::render() { //콘솔창에 출력하는 함수
 	renderUI();
 	renderEnergy();
 	renderHp();
+	renderPlayTime();
 	cursors[0]->blinkCursor();
 	cursors[1]->blinkCursor();
 }
@@ -289,6 +297,12 @@ void GameManager::update() {
 
 void GameManager::checkGameOver()
 {
+	gameOverCount--;
+	if (gameOverCount <= 0) {
+		isReady = false;
+		gotoxy(20, 7, "승리했습니다.");
+	}
+
 	if (hp <= 0) {
 		isReady = false;
 	}

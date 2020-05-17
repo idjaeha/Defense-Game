@@ -13,7 +13,7 @@ Sunflower* Sunflower::create()
 	Sunflower* newItem = new Sunflower(id,  symbol, price);
 	newItem->energyCount = createRandomNumber() % 41 + 10;
 	newItem->isActive = true;
-	newItem->life = 200;
+	newItem->life = 300;
 	return newItem;
 }
 
