@@ -35,9 +35,9 @@ using namespace std;
 #define CHAR_BULLET				'O'
 
 // Size
-#define MAP_SIZE_ROW			5
+#define MAP_SIZE_ROW			7
 #define MAP_SIZE_COL			50
-#define CANVAS_SIZE_ROW			3
+#define CANVAS_SIZE_ROW			MAP_SIZE_ROW - 2
 #define CANVAS_SIZE_COL			29
 #define CANVAS_START_ROW		1
 #define CANVAS_START_COL		20

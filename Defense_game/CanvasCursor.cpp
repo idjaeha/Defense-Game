@@ -9,10 +9,12 @@ CanvasCursor::CanvasCursor(int idx)
 void CanvasCursor::erase() //지정된 부분을 지워주는 함수
 {
 	if (CANVAS_START_COL <= idx && idx < CANVAS_START_COL + 28) { //게임플레이 화면의 커서에서 지워주기
-		int canvasPos = idx * 2; //실제값은 두배해줘야함
-		gotoxy(canvasPos, 1, "  "); 
-		gotoxy(canvasPos, 2, "  "); 
-		gotoxy(canvasPos, 3, "  "); 
+		int mapPos = idx * 2; //실제값은 두배해줘야함
+		gotoxy(mapPos, 1, "  ");
+		gotoxy(mapPos, 2, "  ");
+		gotoxy(mapPos, 3, "  ");
+		gotoxy(mapPos, 4, "  ");
+		gotoxy(mapPos, 5, "  ");
 	}
 }
 void CanvasCursor::render() { //플레이 영역(canvas에 그림)
